@@ -1,6 +1,6 @@
-Nombres  : Luis Andre
+Nombres: Luis Andre
 
 Apellidos: Villanueva Torres 
 
-Cuidad   : Lima
+Cuidad: Lima
 
