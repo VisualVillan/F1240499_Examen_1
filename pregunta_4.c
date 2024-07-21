@@ -21,27 +21,27 @@ int main(){
     *c_pin &= 0xFF0FFFFF;
     *c_pin |= 0x00200000; // output push-pull y Output mode, max speed 2 MHz
 
-    volatile uint32_t* pin_13 = (volatile uint32_t*) *c_odr | 0x00002000; // Port output 13
-    volatile uint32_t* pin_14 = (volatile uint32_t*) *c_odr | (1<<14); // Port output 14
-    volatile uint32_t* pin_15 = (volatile uint32_t*) *c_odr | (1<<15); // Port output 15
+    volatile uint32_t pin_13 =  *c_odr | 0x00002000; // Port output 13
+    volatile uint32_t pin_14 =  *c_odr | (1<<14); // Port output 14
+    volatile uint32_t pin_15 =  *c_odr | (1<<15); // Port output 15
     
     *c_clock |= (1<<4); //Clock en pinC
 
     while(1){
         for(int i = 0; i < 20; i++){
-            *pin_13;  //Luz Roja encendida
+            pin_13;  //Luz Roja encendida
             _delay_ms(6);
-            *pin_13 &= 0xFFFFDFFF;
+            pin_13 &= 0xFFFFDFFF;
             _delay_ms(1);
 
-            *pin_14;
+            pin_14;
             _delay_ms(2);
-            *pin_14 &= 0x00000000;
+            pin_14 &= 0x00000000;
             _delay_ms(1);
 
-            *pin_15;
+            pin_15;
             _delay_ms(10);
-            *pin_15 &= 0x00000000;
+            pin_15 &= 0x00000000;
             _delay_ms(1);
         }
     }
