@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
+//Esta funcion suma los divisores de cada numero menos el mismo numero y los cataloga segun su resultado.
 void analiza_num(int a){
     //printf("El numero es: %i \n", a);
     int suma = 0;
@@ -23,11 +24,12 @@ void analiza_num(int a){
 
 
 int main(){
-
+    //Creamos una arreglo con 15 elementos.
     srand(time(0));
     int n = 15;
     int array[n];
-    
+    //Lazo for con 15 repeticiones para llenar el arreglo con numeros aleatorios.
+    //Cada numero aleatorio sea evaluado con la funcion analiza_num.
     for(int i = 0; i < n; i++){
         array[i] = rand()%100;     
         analiza_num(array[i]); 
