@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main(){
+    //Bases y offset de los registros:
+    
     // BASE GPIO_PORT0 = 0x50000000
     // OFFSET OUT = 0x504 
     // OFFSET OUTSET = 0x508 
@@ -10,6 +12,7 @@ int main(){
     // OFFSET DIRSET = 0x518
     // OFFSET DIRCLR = 0x51C
 
+    //Variables creadas que contienen el valor de los punteros de cada registro en la tabla.
     volatile uint32_t* OUT = (volatile uint32_t *) 0x50000504;
     volatile uint32_t* OUTSET = (volatile uint32_t *) 0x50000508;
     volatile uint32_t* OUTCLR = (volatile uint32_t *) 0x5000050C;
