@@ -13,7 +13,9 @@ int main(){
     //RCCAPB2EN (OFFSET) = 0x18
     
     volatile uint32_t* c_pin = (volatile uint32_t*) 0x40011004;
-    volatile uint32_t* c_odr = (volatile uint32_t*) 0x4001100C;
+    volatile uint32_t* c_odr_pin13 = (volatile uint32_t*) 0x4001100C;
+    volatile uint32_t* c_odr_pin14 = (volatile uint32_t*) 0x4001100C;
+    volatile uint32_t* c_odr_pin15 = (volatile uint32_t*) 0x4001100C;
     volatile uint32_t* c_clock = (volatile uint32_t*) 0x40021018;   
 
     printf("El valor es: %p \n", c_pin);
@@ -21,27 +23,27 @@ int main(){
     *c_pin &= 0xFF0FFFFF;
     *c_pin |= 0x00200000; // output push-pull y Output mode, max speed 2 MHz
 
-    volatile uint32_t pin_13 =  *c_odr | 0x00002000; // Port output 13
-    volatile uint32_t pin_14 =  *c_odr | (1<<14); // Port output 14
-    volatile uint32_t pin_15 =  *c_odr | (1<<15); // Port output 15
+    *c_odr_pin13 |= 0x00002000; // Port output 13
+    *c_odr_pin14 |= (1<<14); // Port output 14
+    *c_odr_pin15 |= (1<<15); // Port output 15
     
     *c_clock |= (1<<4); //Clock en pinC
 
     while(1){
         for(int i = 0; i < 20; i++){
-            pin_13;  //Luz Roja encendida
+            *c_odr_pin13;  //Luz Roja encendida
             _delay_ms(6);
-            pin_13 &= 0xFFFFDFFF;
+            *c_odr_pin13 &= 0xFFFFDFFF;
             _delay_ms(1);
 
-            pin_14;
+            *c_odr_pin14;
             _delay_ms(2);
-            pin_14 &= 0x00000000;
+            *c_odr_pin14 &= 0x00000000;
             _delay_ms(1);
 
-            pin_15;
+            *c_odr_pin15;
             _delay_ms(10);
-            pin_15 &= 0x00000000;
+            *c_odr_pin15 &= 0x00000000;
             _delay_ms(1);
         }
     }
