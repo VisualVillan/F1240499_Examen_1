@@ -1,6 +1,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
+void _delay_ms(uint32_t seg){
+    for(uint32_t i = 0; i < seg*100000; i++);
+}
+
+
 int main(){
     //GPIO_C (Base) = 0x4001 1000
     //GPIO_CRH (OFFSET)= 0x04
@@ -22,9 +27,9 @@ int main(){
 
     while(1){
         *c_odr |= 0x00002000;
-        __delay_ms(10);
+        _delay_ms(10);
         *c_odr &= 0xFFFFDFFF;
-        __delay_ms(10);
+        _delay_ms(10);
     }
  
 
