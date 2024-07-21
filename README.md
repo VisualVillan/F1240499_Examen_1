@@ -8,7 +8,7 @@ Consideraciones:
 
 Pregunta 2:
 
-- Se adjunto el codigo fuente en .C.
+- Se adjunto el codigo fuente en .c .
   
 - Se adjunto el codigo ensamblador compilado con gcc.
 
@@ -17,9 +17,13 @@ Pregunta 2:
 Pregunta 3:
 
 - Se crearon los punteros a los registros mostrados en la tabla para el Puerto 0.
+  
+- Para la pregunta a. se adjunto la tabla con los requerimientos.
 
 Pregunta 4:
 
 - Se adjuntaron los archivos de start up y linkeo.
   
 - La funcion _delay_s() ha sido ajustada para dar un delay aproximado a lo requerido en el ejercicio.
+
+- Se agrego un video de evidencia. 
