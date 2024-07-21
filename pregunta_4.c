@@ -29,19 +29,19 @@ int main(){
 
     while(1){
         for(int i = 0; i < 20; i++){
-            *pin_13 |= 0x00002000;  //Luz Roja encendida
+            *pin_13;  //Luz Roja encendida
             _delay_ms(6);
             *pin_13 &= 0xFFFFDFFF;
             _delay_ms(1);
 
-
+            *pin_14;
             _delay_ms(2);
-
+            *pin_14 &= 0x00000000;
             _delay_ms(1);
 
-
+            *pin_15;
             _delay_ms(10);
-
+            *pin_15 &= 0x00000000;
             _delay_ms(1);
         }
     }
